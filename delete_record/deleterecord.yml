@@ -1,0 +1,21 @@
+- name: delete a record on servicenow table 
+  hosts: localhost 
+  vars_files: 
+    - args.yml 
+    - params.yml 
+  tasks:
+  - name: delete a record on servicenow  
+    uri:
+      url: https://{{snow_inst}}/api/now/table/{{table_name}}/{{sys_id}} #https://dev24647.service-now.com/api/now/table/cmdb_ci_server
+      headers: 
+        Content-Type: "application/json"
+      user: "{{api_username}}"
+      password: "{{api_password}}"
+      validate_certs: false
+      method: DELETE
+      status_code: 204
+    register: snow_record_update_output
+  - name: show the content of a variable 
+    debug: 
+      var: snow_record_update_output
+
