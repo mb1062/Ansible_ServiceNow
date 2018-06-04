@@ -17,11 +17,13 @@ These playbooks use differents arguments,
 There is two type of variable, secured by vault (args.yml) and not secured (params.yml)
 Below a list of parameters common to these playbboks
 For args.yml:
+
         - company       ->      The name of the company
         - api_username  ->      Username of the ServiceNow server account
         - api_password  ->      Password of the ServiceNow server account
 
-For params.yml
+For params.yml:
+
         - vm_name               ->      Name of the VM
         - snow_inst             ->      Address or DNS name of the ServiceNom server
         - table_name            ->      Name of the table in ServiceNow cmdb
