@@ -1,0 +1,7 @@
+vm_name: instance56
+snow_inst: dev24647.service-now.com
+table_name: cmdb_ci_server
+os_inst: Linux RedHat
+short_description: This is a short description
+install_status_inst: 3
+sys_id: 87f990b84f221300e76901f18110c7b4

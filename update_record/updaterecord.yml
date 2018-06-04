@@ -1,0 +1,28 @@
+- name: update record on service now table 
+  hosts: localhost 
+  vars_files: 
+    - args.yml 
+    - params.yml 
+  tasks:
+  - name: update a record on servicenow  
+    uri:
+      url: https://{{snow_inst}}/api/now/table/{{table_name}}/{{sys_id}} #https://dev24647.service-now.com/api/now/table/cmdb_ci_server
+      headers: 
+        Content-Type: "application/json"
+      user: "{{api_username}}"
+      password: "{{api_password}}"
+      validate_certs: false
+      method: PATCH
+      body:
+        name: "{{vm_name}}"
+        install_status: "{{install_status_inst}}"
+        company: "{{company}}"
+        short_description: "{{short_description}}"
+        os: "{{os_inst}}"
+      body_format: json
+      status_code: 200
+    register: snow_record_update_output
+  - name: show the content of a variable 
+    debug: 
+      var: snow_record_update_output
+
