@@ -6,7 +6,7 @@
   tasks:
   - name: delete a record on servicenow  
     uri:
-      url: https://{{snow_inst}}/api/now/table/{{table_name}}/{{sys_id}} #https://dev24647.service-now.com/api/now/table/cmdb_ci_server
+      url: https://{{snow_inst}}/api/now/table/{{table_name}}/{{sys_id}} #https://dev24647.service-now.com/api/now/table/cmdb_ci_server/sysid
       headers: 
         Content-Type: "application/json"
       user: "{{api_username}}"
