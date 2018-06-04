@@ -1,0 +1,29 @@
+- name: create a record on service now table 
+  hosts: localhost 
+  vars_files: 
+    - args.yml 
+    - params.yml 
+  tasks: 
+  - name: create a new record on servicenow  
+    uri:
+      url: https://{{snow_inst}}/api/now/table/{{table_name}} #https://dev24647.service-now.com/api/now/table/cmdb_ci_server
+      headers: 
+        Content-Type: "application/json"
+      user: "{{api_username}}"
+      password: "{{api_password}}"
+      validate_certs: false
+      method: POST
+      body:
+        name: "{{vm_name}}"
+        install_status: "3"
+        company: "ACME"
+        short_description: "A short description"
+        os: "Linux Red Hat"
+      body_format: json
+      status_code: 201
+    ignore_errors: true 
+    register: snow_record_update_output
+  - name: show the content of a variable 
+    debug: 
+      var: snow_record_update_output
+
