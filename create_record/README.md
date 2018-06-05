@@ -22,13 +22,13 @@ args.yml:
 
 For params.yml:
 
-        - snow_inst     	->      Address or DNS name of the ServiceNom server
-        - table_name    	->      Name of the table in ServiceNow cmdb
-        - vm_name       	-> 	Name of the Virtual Machine which has just been created
-        - company       	->	Name of the company which own the Virtual Machine
-        - install_status_inst	->	Status of the Virtual Machine installation
-        - short_description	->	A short description of the Virtual Machine
-        - os_inst       	-> 	The name of the OS, the field should be define with the list of OS available
+        - snow_inst             ->      Address or DNS name of the ServiceNom server
+        - table_name            ->      Name of the table in ServiceNow cmdb
+        - vm_name               -> 	Name of the Virtual Machine which has just been created
+        - company               ->	Name of the company which own the Virtual Machine
+        - install_status_inst   ->	Status of the Virtual Machine installation
+        - short_description     ->	A short description of the Virtual Machine
+        - os_inst               -> 	The name of the OS, the field should be define with the list of OS available
 
 # Run
 
