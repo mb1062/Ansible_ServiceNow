@@ -26,8 +26,8 @@ args.yml:
 
 For params.yml:
 
-        - snow_inst             ->      Address or DNS name of the ServiceNom server
-        - table_name            ->      Name of the table in ServiceNow cmdb
+        - snow_inst	->      Address or DNS name of the ServiceNom server
+        - table_name	->      Name of the table in ServiceNow cmdb
 
 # Run
 
