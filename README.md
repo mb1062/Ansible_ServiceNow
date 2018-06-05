@@ -42,7 +42,7 @@ With parameters configured with files
 #ansible-playbook createrecord.yml 
 
 With parameters overloaded
-#ansible-playbook createrecord.yml -e sys_id=123456789123456789
+#ansible-playbook createrecord.yml -e company=mycompany
 
 # OS
 

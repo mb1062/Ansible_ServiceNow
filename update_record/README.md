@@ -3,7 +3,16 @@
 
 # Playbooks
 
-This repository will include the playbooks Ansible for creating a reccord and his parameters file
+This repository will include the playbooks Ansible for updating a reccord and his parameters file
+
+To update a reccord you should configure again the differents parameters, and they will be overwrite 
+
+You can change the parameters below
+
+	- vm_name
+	- company
+	- install_status_inst
+	- short_description
 
 You can find here:
 
@@ -43,6 +52,6 @@ With parameters configured with files
 #ansible-playbook createrecord.yml 
 
 With parameters overloaded
-#ansible-playbook createrecord.yml -e company=mycompany
+#ansible-playbook createrecord.yml -e sys_id=123456789123456789
 
 
