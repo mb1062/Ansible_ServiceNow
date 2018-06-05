@@ -1,3 +1,7 @@
 vm_name: instancedetest2
 snow_inst: dev24647.service-now.com
 table_name: cmdb_ci_server
+company: ACME
+install_status_inst: 3
+short_description: This is a short Description
+os_inst:                        # choose it in a list : Linux RedHat

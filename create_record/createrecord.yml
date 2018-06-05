@@ -15,10 +15,10 @@
       method: POST
       body:
         name: "{{vm_name}}"
-        install_status: "3"
-        company: "ACME"
-        short_description: "A short description"
-        os: "Linux Red Hat"
+        install_status: "{{install_status_inst}}"
+        company: "{{company}}"
+        short_description: "{{short_description}}"
+        os: "{{os_inst}}"
       body_format: json
       status_code: 201
     ignore_errors: true 
