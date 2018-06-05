@@ -26,8 +26,8 @@ args.yml:
 
 For params.yml:
 
-        - snow_inst	->      Address or DNS name of the ServiceNom server
-        - table_name	->      Name of the table in ServiceNow cmdb
+        - snow_inst     ->      Address or DNS name of the ServiceNom server
+        - table_name    ->      Name of the table in ServiceNow cmdb
 
 # Run
 
@@ -44,4 +44,11 @@ With parameters configured with files
 With parameters overloaded
 #ansible-playbook createrecord.yml -e sys_id=123456789123456789
 
+# OS
 
+Below the list of OS available for the parameter os_inst
+The paremeter should be write exaclty with the same string
+
+list of OS:
+
+- Linux RedHat
