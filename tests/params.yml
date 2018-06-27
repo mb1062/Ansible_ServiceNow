@@ -1,0 +1,39 @@
+api_username: OSTC_CLOUDFORMS
+api_password: OSTC_CLOUDFORMS
+proxy_user: USER_OSTC
+proxy_pass: 'Uhk%40_KM6'
+proxy_server: 146.249.250.136
+snow_inst: rec-intranet.itsm.hubtotal.net
+server_table: cmdb_ci_server
+cluster_table: cmdb_ci_cluster
+appli_table: cmdb_ci_appli
+group_table: cmdb_rel_group
+relation_table: cmdb_rel_ci
+#contract_table:
+
+company: TGS
+param_vm_name: CF_Prov_01
+category: logical
+service_class: standard
+short_description: VM created by CF
+param_os: Linux RedHat
+param_cpus: 2
+param_memory: 4096
+disk_capacity: 40G
+param_environment: Preproduction
+hardware_model: None # dummy paramter 
+
+cluster: None # Dummy 
+appli: None #Dummy 
+
+#managedby:
+#supportedby:
+#administratedby:
+
+#param_sla:
+#opening_hours:
+#sirus_contrat_sla_opening_hours:
+#sirus_contrat_sla_level:
+
+install_status: 3
+subtatus: "pending_disposal"

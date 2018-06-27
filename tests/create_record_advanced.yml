@@ -1,0 +1,97 @@
+- name: create a record on service now table
+  hosts: localhost
+  vars_files:
+    - args.yml
+    - params.yml
+  environment:
+    https_proxy: 'http://{{proxy_user}}:{{proxy_pass}}@{{proxy_server}}:8080'
+
+  tasks:
+  - name: create a new record on servicenow
+    uri:
+      url: https://{{snow_inst}}/api/now/table/{{server_table}}
+      headers:
+        Content-Type: "application/json"
+      user: "{{api_username}}"
+      password: "{{api_password}}"
+      validate_certs: false
+      method: POST
+      body:
+        company: "{{company}}"
+        name: "{{param_vm_name}}"
+        category: "{{category}}"
+        service_class: "{{service_class}}"
+        short_description: "{{short_description}}"
+        os: "{{param_os}}"
+        cpu_core_count: "{{param_cpus}}"
+        ram: "{{param_memory}}"
+        disk_space: "{{disk_capacity}}"
+        u_used_for: "{{param_environment}}"
+        model_id: "{{hardware_model}}"
+        install_status: "{{install_status_inst}}"
+        u_substatus: "{{subtatus}}"
+        u_reboot_slot: "{{reboot_slot}}"
+      body_format: json
+      status_code: 201
+    ignore_errors: true
+    register: snow_record_update_output
+  - name: show the content of a variable
+    debug:
+      var: snow_record_update_output
+
+ - name: relationship CI-CI cluster
+    uri:
+      url: https://{{snow_inst}}/api/now/table/{{relation_table}}?sysparm_fields=sys_id,ci_group,type
+      headers:
+         Content-Type: "application/json"
+      user: "{{api_username}}"
+      password: "{{api_password}}"
+      validate_certs: false
+      method: POST
+      body:
+        parent:
+        child:
+        type: "Virtualized on"
+
+ - name: relationship CI-CI appli
+    uri:
+      url: https://{{snow_inst}}/api/now/table/{{relation_table}}?sysparm_fields=sys_id,ci_group,type
+      headers:
+         Content-Type: "application/json"
+      user: "{{api_username}}"
+      password: "{{api_password}}"
+      validate_certs: false
+      method: POST
+      body:
+        parent:
+        child:
+        type: "Runs on"
+
+  - name: relationship CI-group - managed by
+    uri:
+      url: https://{{snow_inst}}/api/now/table/{{cmdb_rel_group}}?sysparm_fields=sys_id,ci_group,type
+      headers:
+         Content-Type: "application/json"
+      user: "{{api_username}}"
+      password: "{{api_password}}"
+      validate_certs: false
+      method: POST
+      body:
+        ci: "{{param_vm_name}}"
+        group: "{{managedby }}"
+        type: "Manages::Managed by"
+
+  - name: relationship CI-group - administrated by
+    uri:
+      url: https://{{snow_inst}}/api/now/table/{{cmdb_rel_group}}?sysparm_fields=sys_id,ci_group,type
+      headers:
+         Content-Type: "application/json"
+      user: "{{api_username}}"
+      password: "{{api_password}}"
+      validate_certs: false
+      method: POST
+      body:
+        ci: "{{param_vm_name}}"
+        group: "{{administratedby }}"
+        type: "Administrates::Administrated by"
+
